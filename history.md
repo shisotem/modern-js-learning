@@ -33,7 +33,7 @@
 - `第二次ブラウザ戦争`
     - 2000年代後半～、IE / Chrome / Firefox / Safari / Opera $\rightarrow$ 2012年～、Chromeが1位に。
 
----
+***
 
 - `サーバサイドJSのムーブメント`
     - 当時はサーバサイドはPHPなど $\rightarrow$ JSを使いたい！ $\rightarrow$ **ServerJS**というプロジェクトが発足 $\rightarrow$ しかし、サーバサイドでJSを使うには、色々なAPI（機能）が不足していた $\rightarrow$ ServerJSの実現のためにはAPIを作る必要がある。
@@ -96,3 +96,41 @@
 
     - **依存関係** $\rightarrow$ **npm（パッケージ管理）** が解決。
         - $\rightarrow$ To Be Continued!!!
+
+## #2 後編1
+
+- `Node.jsの誕生とCommonJS`
+    - Node.jsにはモジュールという仕組みが備わっている（"最初は"**CommonJSのモジュールAPI**に準拠 : module.exports / require）。
+
+    - 段々とCommonJS（サーバサイドJS実現のためにAPIを作ろう！プロジェクト）のコミュニティがうまく機能しなくなってくる $\rightarrow$ Node.jsは"独自の進化"を遂げる（**Node.js独自のモジュール**に進化）！（現在、CommonJSのプロジェクトは停止 / CommonJS形式のモジュールという言い回しだけは今も残る）
+
+    - JSには**モジュールの仕様が複数存在**している（e.g. Node.js $\rightarrow$ **CommonJS形式のモジュール**）。
+
+- `パッケージ管理システムnpm`
+    - パッケージとは、**package.jsonで記述されたファイルやディレクトリ**のこと（by npm公式）。
+
+    - モジュールによる名前空間問題の解決 $\rightarrow$ 機能の細分化 $\rightarrow$ さらに、細分化された機能を組み合わせて新たな機能を作りたい…！ $\rightarrow$ 共有の需要
+
+    - 改めてパッケージとは、**共有したい機能の単位**であるといえる（1ファイルの場合も、ディレクトリの場合もある）。
+
+    - Node.jsで色々なパッケージが開発されるようになる $\rightarrow$ パッケージを**バージョン管理**し、**共有するためのシステム**が必要 $\rightarrow$ パッケージ管理システム
+
+    - **パッケージ管理システム**
+        1. リポジトリの購読 : ローカル環境に**インストールしたパッケージを更新**できる。また、**パッケージを検索**できる。
+        2. パッケージのインストール及び削除
+        3. **依存関係の解決** : パッケージに必要な別のパッケージを自動でインストールしたり、更新することができる。
+        4. 設定管理 : 設定を書くことで1. 2. 3. が自動で行える $\rightarrow$ チームの環境を簡単に揃えられる。
+
+    - 2010年、**Node.jsのパッケージ管理システムであるnpm**（Node Package Manager）が誕生 $\rightarrow$ この頃を皮切りに、多くの世界的有名企業がNode.jsを社内言語として採用。
+
+    - cf. [package.json VS. package-lock.json](https://qiita.com/adgjmptwgw/items/cb08aa4a33fecc478422)
+
+## #3 後編2
+
+>***KEY POINT***  
+>（**ブラウザでモジュールを使う**ために模索した結果）**コードを事前に変換する**ことが主流に！$\rightarrow$ コードを事前に変換することにはモジュールを使える以外にも**色々な恩恵**がある！
+
+- `ブラウザとモジュール（IIFE, AMD, Bower）`
+- `バンドルツール（Browserify, webpack）`
+- `ES Modulesの策定`
+- `ES2015とBabel`
