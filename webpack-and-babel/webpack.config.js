@@ -11,10 +11,28 @@ module.exports = {
         path: path.resolve(__dirname, 'dist'), // 出力されるファイルの保存先ディレクトリを指定
         filename: "bundle.js" // 出力されるバンドルファイルの名前を指定
     },
+    // webpack-dev-server: src内のファイル群を監視 -> 変更があった場合に自動でdist/bundle.jsにバンドル（+ ブラウザ更新）
     devServer: {
         static: {
             directory: path.resolve(__dirname, 'dist')
         }
+    },
+    // webpackに関連するモジュールの設定
+    module: {
+        // webpackでバンドルする際に、どのようなファイルを対象にするかを指定
+        rules: [
+            {
+                test: /\.js$/, // .jsファイルを対象にする
+                use: [ // testで指定した、ヒットしたファイルに対して、useで指定したローダーを適用する
+                    {
+                        loader: 'babel-loader', // babel-loaderを使用する
+                        options: {
+                            presets: ['@babel/react'] // babel-loaderのオプションとして、@babel/reactを指定 -> ReactのJSXを解釈できるようになる
+                        }
+                    }
+                ]
+            }
+        ]
     }
 };
 
