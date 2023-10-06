@@ -188,8 +188,10 @@
 
 - `モジュールバンドラ（翌年、上位互換webpackの登場）`
     - 対応するローダ（webpackの概念 : 基本的にJSファイルはJSしか読み込めないが… $\rightarrow$ JSファイルからHTML/CSS/imgなども読み込めるようにするためのもの）があれば、**HTML/CSS/imgなど**のフロントエンドのアセットも併せて、バンドルすることが出来る（Browserifyとの差別化）。
-        - .cjs .hbs .sass .saas（**ブラウザで読み込めない**）+ .js .js .png .jpg $\Rightarrow$ .js .css .jpg .png（**ブラウザで読み込める**）
-        - バンドル前のファイルどうしは依存関係が複雑 $\Rightarrow$ **依存関係がない状態**（.js / .css / .jpg / .png）に！
+    
+    - ポイントは次の2つ
+        1. .cjs .hbs .sass .saas（**ブラウザで読み込めない**）+ .js .js .png .jpg $\Rightarrow$ .js .css .jpg .png（**ブラウザで読み込める**）
+        2. バンドル前のファイルどうしは複雑に依存し合う $\Rightarrow$ **依存関係がない状態**（.js / .css / .jpg / .png）に！
     
     - Code Splitting : 沢山のファイルをバンドルすると大きな1ファイルが生成される $\rightarrow$ コードを複数のchunkに分割し、実行時に非同期的にロードすることで、最初のロード時間を短縮（Browserifyとの差別化）。
 
