@@ -2,8 +2,8 @@ const path = require('path');
 
 module.exports = {
     // モードの設定
-    // mode: 'development',
-    mode: 'production',
+    mode: 'development',
+    // mode: 'production',
     // アプリケーションのエントリーポイントを指定（この場合、index.jsがエントリーファイル）
     // => webpackはこのファイルを起点にして、依存関係を解決していく
     entry: './src/index.js',
@@ -11,6 +11,11 @@ module.exports = {
         path: path.resolve(__dirname, 'dist'), // 出力されるファイルの保存先ディレクトリを指定
         filename: "bundle.js" // 出力されるバンドルファイルの名前を指定
     },
+    devServer: {
+        static: {
+            directory: path.resolve(__dirname, 'dist')
+        }
+    }
 };
 
 
